@@ -1,7 +1,7 @@
 var canvas = document.getElementById('canvas');
-var canvas2 = document.getElementById('canvas2');
+// var canvas2 = document.getElementById('canvas2');
 var context = canvas.getContext('2d');
-var context2 = canvas2.getContext('2d');
+// var context2 = canvas2.getContext('2d');
 var go = document.getElementById('btn_go');;
 var lengthInput = document.getElementById('selectLength');
 var rangeB = document.getElementById('B');
@@ -78,14 +78,6 @@ Izing.prototype.fillByColors = function() {
 
         }
     }
-    /*    for (var i = 0; i < this.L; i++) {
-        for (var j = 0; j < this.L; j++) {
-            if (this.a[i][j] === -1) {
-                context.fillRect((j - 1) * this.px, (i - 1) * this.px, this.px, this.px);
-            }
-            context.fillStyle = 'black';
-        }
-    }*/
 };
 
 Izing.prototype.calculateMagnetism = function() {
@@ -98,36 +90,8 @@ Izing.prototype.calculateMagnetism = function() {
     console.log('Magnetism\t' + this.magnetism);
 };
 
-/*Izing.prototype.calculateEnergy = function() {
-    that = this;
-
-    function chNeighbor(ii, jj) {
-        var temp = 0;
-        var cur = that.a[ii][jj],
-            up = that.a[ii - 1][jj],
-            down = that.a[ii + 1][jj],
-            left = that.a[ii][jj - 1],
-            right = that.a[ii][jj + 1];
-        temp -= that.J * cur * up;
-        temp -= that.J * cur * down;
-        temp -= that.J * cur * left;
-        temp -= that.J * cur * right;
-
-        return temp;
-    }
-
-    for (var i = 1; i < this.L; i++) {
-        for (var j = 1; j < this.L; j++) {
-            this.energy += chNeighbor(i, j);
-            this.energy -= this.a[i][j] * this.B;
-        }
-    }
-
-    console.log(this.energy);
-};*/
-
 Izing.prototype.runMonteCarlo = function() {
-    console.log('The B:\t' + this.B + '\n The T: \t' + this.T);
+    // console.log('The B:\t' + this.B + '\n The T: \t' + this.T);
     var that = this;
     var count = 0;
     while (count < this.N) {
@@ -141,7 +105,6 @@ Izing.prototype.runMonteCarlo = function() {
 
 
         if (Energy2 > Energy1 && Math.random() > Math.exp((Energy1 - Energy2) / this.T)) {
-            console.log('я тут');
             flip(theK);
         }
         count++;
@@ -178,20 +141,6 @@ Izing.prototype.runMonteCarlo = function() {
         energy -= that.a[ii][jj] * that.B;
         return energy;
     }
-
-    /*    function calculateEnergy() {
-        var energy = 0;
-        for (var i = 1; i < that.L; i++) {
-            for (var j = 1; j < that.L; j++) {
-                energy += chNeighbor(i, j);
-
-            }
-        }
-        return energy;
-    }*/
-
-    // console.log('Energy1 \t' + Energy1);
-    // console.log('Energy2 \t' + Energy2);
 
 };
 
