@@ -6,7 +6,7 @@ var go = document.getElementById('btn_go');;
 var lengthInput = document.getElementById('selectLength');
 var rangeB = document.getElementById('B');
 var rangeT = document.getElementById('T');
-
+var integralJ = document.getElementById('J');
 /**
  *
  */
@@ -23,7 +23,7 @@ function Izing() {
     this.B = 0;
     this.px = choosePixel();
     this.goal = false;
-    this.N = 256;
+    this.N = 256 * 256;
 }
 
 
@@ -122,7 +122,7 @@ Izing.prototype.runMonteCarlo = function() {
     }
 
     function getK() {
-        return Math.round(3 - 0.5 + Math.random() * (253 - 3 + 1));
+        return Math.round(1 - 0.5 + Math.random() * (256 - 1 + 1));
     }
 
 
@@ -179,6 +179,11 @@ Izing.prototype.SetT = function() {
     this.T = document.getElementById('T').value;
 };
 
+Izing.prototype.SetT = function() {
+    console.log('tatat');
+    this.J *= -1;
+};
+
 var Izing = new Izing();
 
 go.addEventListener('click', startIzing);
@@ -199,7 +204,7 @@ function startIzing() {
     setInterval(function() {
         Izing.runMonteCarlo();
         Izing.fillByColors();
-    }, 500);
+    }, 800);
     // Izing.calculateMagnetism();
 
 
@@ -217,9 +222,4 @@ function transpose(a) {
 
 function eventB() {
     Izing.SetB();
-}
-
-
-function eventT() {
-    Izing.SetT();
 }
