@@ -1,0 +1,29 @@
+body {
+    margin: auto;
+    width: 612px;
+    height: 520px;
+}
+.canvas {
+    margin-top: 30px;
+    background-color: #000;
+    width: 512px;
+    height: 512px;
+}
+.canvas2 {
+    background-color: #f2f;
+    width: 512px;
+    height: 128px;
+}
+.controls {
+    display: inline-block;
+    position: absolute;
+    margin-left: 25px;
+    margin-top: 25px;
+    width: 200px;
+}
+.prob {
+    width: 40px;
+}
+.level {
+    margin-top: 25px;
+}
