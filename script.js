@@ -3,6 +3,9 @@ var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 // var context2 = canvas2.getContext('2d');
 var go = document.getElementById('btn_go');;
+
+
+
 var lengthInput = document.getElementById('selectLength');
 var rangeB = document.getElementById('B');
 var rangeT = document.getElementById('T');
